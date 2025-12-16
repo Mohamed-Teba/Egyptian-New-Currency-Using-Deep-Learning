@@ -1,121 +1,151 @@
-# Egyptian New Currency Recognition using Deep Learning
+# 🇪🇬 Egyptian New Currency Recognition: A Deep Learning Approach
 
 [![GitHub Stars](https://img.shields.io/github/stars/Mohamed-Teba/Egyptian-New-Currency-Using-Deep-Learning?style=social)](https://github.com/Mohamed-Teba/Egyptian-New-Currency-Using-Deep-Learning)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
+[![Framework](https://img.shields.io/badge/TensorFlow%2FKeras-blueviolet)](https://www.tensorflow.org/)
 [![Project Status](https://img.shields.io/badge/Status-Completed-success)](https://github.com/Mohamed-Teba/Egyptian-New-Currency-Using-Deep-Learning)
 
-## 🌟 Overview
+## 1. 📚 Project Overview
 
-This repository hosts a Deep Learning project developed as a graduation requirement by the **Faculty of Computers and Artificial Intelligence at Banha University**. The primary goal is to accurately recognize and classify various denominations of Egyptian currency, with a special emphasis on the recently introduced **polymer banknotes of 10 EGP and 20 EGP**.
+This repository documents a robust solution for the automatic recognition and classification of Egyptian currency denominations using Deep Learning. Developed as a graduation project by the Faculty of Computers and Artificial Intelligence at **Banha University**, the system is designed to accurately classify both traditional paper banknotes and the **newly introduced polymer banknotes (10 EGP and 20 EGP)**.
 
-We utilize a Convolutional Neural Network (CNN) to address the challenges posed by real-world image variations, including diverse lighting, viewing angles, and backgrounds, making it a robust solution for currency recognition systems.
+The primary objective is to develop a Convolutional Neural Network (CNN) model that exhibits high accuracy and resilience against complex real-world image variations, making it suitable for integration into automated currency handling systems.
 
-## 💰 Dataset
+---
 
-The project relies on a meticulously curated, high-quality image dataset of Egyptian currency, captured under diverse conditions to ensure model robustness.
+## 2. 🎯 Problem Statement: Currency Classification
 
-### Currency Denominations:
-The dataset covers a total of **8** distinct classes:
-* 5 Egyptian Pound Banknote
-* 10 Egyptian Pound Banknote
-* 20 Egyptian Pound Banknote
-* **New 10 Egyptian Pound Banknote (Polymer)**
-* **New 20 Egyptian Pound Banknote (Polymer)**
-* 50 Egyptian Pound Banknote
-* 100 Egyptian Pound Banknote
-* 200 Egyptian Pound Banknote
+The core challenge addressed is a high-stakes, multi-class image classification task involving 8 visually similar categories of Egyptian banknotes.
 
-### Image Diversity and Robustness:
-To simulate real-world scenarios and enhance the dataset's utility, each currency denomination is captured from multiple perspectives:
-* **Capture Positions:** Frontal Views, Variably Angled Shots, and Rotated Positions.
-* **Backgrounds:** Plain backgrounds for controlled environments and natural settings with textured surfaces.
-* **Lighting:** Varied lighting conditions to account for potential challenges.
+### 2.1. Classification Scope (8 Classes)
+* 5 Egyptian Pound Banknote (EGP)
+* 10 EGP Banknote
+* **New 10 EGP Banknote (Polymer)**
+* 20 EGP Banknote
+* **New 20 EGP Banknote (Polymer)**
+* 50 EGP Banknote
+* 100 EGP Banknote
+* 200 EGP Banknote
 
-### Technical Details:
-* **Image Resolution:** High-resolution images for detailed analysis.
-* **Format:** Standardized image formats facilitating seamless integration into machine learning pipelines.
+### 2.2. Robustness Requirements
+The model must achieve **viewpoint invariance** and **lighting robustness**. This necessitates a solution capable of maintaining high performance despite variations in:
+* **Viewing Angle:** Angled and Rotated Views.
+* **Background:** Plain laboratory settings vs. complex textured environments.
+* **Illumination:** Diverse lighting conditions affecting banknote texture and color.
 
-## 💡 Clear Explanation of the Problem
+---
 
-The core challenge is **multi-class image classification** under varying real-world conditions. Specifically, the model must:
-1.  **Handle Visual Similarity:** Accurately classify between 8 visually similar categories, including the subtle differences between old and new 10 EGP and 20 EGP notes.
-2.  **Achieve Invariance:** Maintain high accuracy despite significant variations in image capture, such as different viewing angles (`Angled Shots`), rotation, diverse lighting, and complex backgrounds.
-3.  **Robust Feature Extraction:** Deep learning is essential to automatically learn the intricate features and security details necessary for reliable currency identification.
+## 3. 💾 Dataset Description
 
-## 🏗️ Description of the CNN Architecture
+Our solution is built upon a meticulously curated, high-resolution dataset specifically designed to maximize model generalization.
 
-A Convolutional Neural Network (CNN) was implemented to automatically learn spatial hierarchies of features from the banknote images.
+### 3.1. Data Acquisition Strategy
+To ensure a robust training environment, images for each denomination were captured with variations in:
+* **Capture Positions:** Frontal views, variable angled shots, and rotated orientations.
+* **Backgrounds:** Controlled plain backgrounds and natural, textured surfaces.
+* **Technical Details:** High-resolution images in standardized formats.
 
-**[INSERT FIGURE OF THE CNN MODEL ARCHITECTURE HERE]**
+---
 
-### Architecture Details:
-(Describe the architecture here, e.g., "The model is based on the [VGG16/ResNet50] architecture, pre-trained on ImageNet, with the final classification layers replaced to accommodate the 8 currency classes. We fine-tuned...")
+## 4. 🧠 Methodology: CNN Architecture
 
-## 📊 Training Loss and Accuracy Curves
+A tailored Convolutional Neural Network (CNN) architecture was implemented for feature extraction and classification.
 
-The model was trained over [N] epochs. The following plots illustrate the convergence and generalization capability of the model by tracking the loss and accuracy on both the training and validation sets.
+### 4.1. Model Structure
+The architecture [Specify Base Model, e.g., is based on a **custom sequential model** or **fine-tuned ResNet-50**], incorporating standard building blocks optimized for visual classification tasks:
 
-### Training & Validation Loss Curve
+$$
+\text{Input} \rightarrow \underbrace{\text{Conv Layers} + \text{Pooling}}_{\text{Feature Extraction}} \rightarrow \underbrace{\text{Flatten} \rightarrow \text{Dense Layers}}_{\text{Classification Head}} \rightarrow \text{Output (8 Classes)}
+$$
+
+**[INSERT PROFESSIONAL FIGURE/DIAGRAM OF THE CNN MODEL ARCHITECTURE HERE]**
+
+### 4.2. Training Parameters
+* **Loss Function:** [Specify Loss Function, e.g., Categorical Cross-Entropy]
+* **Optimizer:** [Specify Optimizer, e.g., Adam]
+* **Epochs:** [N]
+* **Batch Size:** [M]
+
+---
+
+## 5. 📈 Results and Evaluation
+
+The model was rigorously tested on a dedicated, unseen test set to validate its performance and generalization capability.
+
+### 5.1. Training Performance Curves
+
+The following plots illustrate the model's convergence and stability throughout the training process:
+
+#### Training and Validation Loss
 **[INSERT PLOT OF TRAINING & VALIDATION LOSS HERE]**
 
-### Training & Validation Accuracy Curve
+#### Training and Validation Accuracy
 **[INSERT PLOT OF TRAINING & VALIDATION ACCURACY HERE]**
 
-## 🔬 Testing Results
+### 5.2. Quantitative Evaluation
 
-The final model performance was evaluated on a dedicated, unseen test set to measure its real-world effectiveness.
+| Metric | Value | Description |
+| :--- | :--- | :--- |
+| **Overall Accuracy** | [INSERT ACCURACY VALUE]% | Classification accuracy on the final test set. |
+| **Macro Precision** | [INSERT PRECISION VALUE] | Average precision across all classes, indicating low false positives. |
+| **Macro Recall** | [INSERT RECALL VALUE] | Average recall across all classes, indicating low false negatives. |
+| **F1-Score** | [INSERT F1-SCORE VALUE] | Harmonic mean of precision and recall, serving as a balanced performance measure. |
 
-### Confusion Matrix
-The confusion matrix shows the number of correct and incorrect predictions made for each class, highlighting potential misclassification patterns.
+### 5.3. Confusion Matrix
+The confusion matrix provides a granular view of per-class performance, crucial for identifying specific misclassification tendencies (e.g., confusion between old and new denominations).
 
 **[INSERT CONFUSION MATRIX PLOT HERE]**
 
-### Evaluation Metrics
-| Metric | Value | Notes |
-| :--- | :--- | :--- |
-| **Accuracy** | [INSERT ACCURACY VALUE] | Overall classification accuracy on the test set. |
-| **Precision (Macro)** | [INSERT PRECISION VALUE] | Average precision across all classes. |
-| **Recall (Macro)** | [INSERT RECALL VALUE] | Average recall (sensitivity) across all classes. |
-| **F1-Score (Macro)** | [INSERT F1-SCORE VALUE] | Harmonic mean of precision and recall. |
-
-## 🖼️ Example Predictions on Unseen Images
-
-The following examples showcase the model's performance on images not seen during the training or validation phase.
+### 5.4. Prediction Examples
+Visual examples demonstrating the model's successful classification of challenging, real-world images from the test set.
 
 **[INSERT EXAMPLES OF PREDICTED IMAGES (e.g., Image, Predicted Class, True Class, Confidence Score) HERE]**
 
-## 🚧 Difficulties Faced and What Was Learned
+---
 
-### Difficulties Faced
-1.  **Handling Image Variation:** The need to train on `Angled Shots` and `Rotated Positions` required extensive data augmentation to prevent the model from overfitting to simple frontal views.
-2.  **Distinguishing New vs. Old Notes:** Fine-tuning the model's depth and complexity was crucial to ensure it could differentiate between the old and new 10 EGP/20 EGP notes, which are visually similar in value but different in material and design.
-3.  **Data Quality:** Ensuring consistency across diverse lighting and backgrounds added complexity to the pre-processing pipeline.
+## 6. ⚙️ System Setup and Reproducibility
 
-### Lessons Learned
-1.  **Transfer Learning Efficacy:** Using pre-trained models proved highly effective for achieving high accuracy quickly, leveraging features learned from millions of general images.
-2.  **Importance of a Diverse Dataset:** The project validated the initial hypothesis that a dataset incorporating variations in perspective, lighting, and background is non-negotiable for real-world currency recognition applications.
-3.  **Evaluation Focus:** The confusion matrix was critical in identifying the specific denominations that the model struggled to separate, guiding necessary adjustments in training parameters or data balance.
+This section outlines the steps required to set up the environment and reproduce the results.
 
-## 🛠️ Setup and Installation
+### 6.1. Prerequisites
+* Python 3.x
+* Git
 
-To reproduce the environment and run the code locally, ensure you have Python 3.x installed.
-
-1.  **Clone the repository:**
+### 6.2. Installation
+1.  **Clone the Repository:**
     ```bash
     git clone [https://github.com/Mohamed-Teba/Egyptian-New-Currency-Using-Deep-Learning.git](https://github.com/Mohamed-Teba/Egyptian-New-Currency-Using-Deep-Learning.git)
     cd Egyptian-New-Currency-Using-Deep-Learning
     ```
 
-2.  **Install dependencies:**
+2.  **Install Required Libraries:**
     ```bash
     pip install -r requirements.txt
     ```
 
-3.  **Download Dataset:**
-    (Instructions on where to download the dataset and place it in the project structure, e.g., `data/`)
+3.  **Data Acquisition:**
+    * (Instruction on how to download and structure the dataset, e.g., "Place the dataset files into the `./data/` directory.")
 
-4.  **Run the main script (e.g., Training):**
+4.  **Run Training Script:**
     ```bash
     python train_model.py
     ```
+
+---
+
+## 7. 📝 Challenges and Learnings
+
+### 7.1. Key Difficulties Encountered
+* **Generalization under Augmentation:** Balancing aggressive data augmentation (rotation, lighting shifts) necessary for real-world robustness without introducing noise that hinders feature learning.
+* **Fine-Grained Classification:** Developing the model depth required to differentiate subtle security features separating the old and new polymer banknotes.
+
+### 7.2. Core Learnings
+* **Data Quality is Paramount:** The success of the project was highly dependent on the initial comprehensive data acquisition strategy, emphasizing variability in all physical dimensions.
+* **Iterative Model Refinement:** Performance improvement was achieved through iterative experimentation with different pre-trained CNN backbones and tuning of the final classification layers.
+
+---
+
+## 8. 🎓 Acknowledgment
+
+This project was developed by the graduation team from the **Faculty of Computers and Artificial Intelligence, Banha University**.
