@@ -143,9 +143,3 @@ This section outlines the steps required to set up the environment and reproduce
 ### 7.2. Core Learnings
 * **Data Quality is Paramount:** The success of the project was highly dependent on the initial comprehensive data acquisition strategy, emphasizing variability in all physical dimensions.
 * **Iterative Model Refinement:** Performance improvement was achieved through iterative experimentation with different pre-trained CNN backbones and tuning of the final classification layers.
-
----
-
-## 8. 🎓 Acknowledgment
-
-This project was developed by the graduation team from the **Faculty of Computers and Artificial Intelligence, Banha University**.
